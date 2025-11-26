@@ -27,7 +27,7 @@ if __name__ == "__main__":
         album = st.text_input("Enter an album to search for:")
     
     with col2:
-        artist = st.text_input("Artist name")
+        artist = st.text_input("Enter an Artist name to search for:")
 
     if st.button("Search"):
 
@@ -46,7 +46,7 @@ if __name__ == "__main__":
 
             df = pd.DataFrame({
                 "Name": [t["name"] for t in tracks],
-                "Duration (ms)": [ms_to_min_sec(t['duration_ms']) for t in tracks]
+                "Duration": [ms_to_min_sec(t['duration_ms']) for t in tracks]
             })
 
         except Exception as e:
