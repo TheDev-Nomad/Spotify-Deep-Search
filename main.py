@@ -25,11 +25,12 @@ if __name__ == "__main__":
 
     with col1:
         album = st.text_input("Enter an album to search for:")
-    
+        search = st.button("Search")
     with col2:
         artist = st.text_input("Enter an Artist name to search for:")
 
-    if st.button("Search"):
+
+    if search:
 
         try:
             # Fetching data from the entered album and artist
