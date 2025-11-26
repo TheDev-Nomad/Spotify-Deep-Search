@@ -32,7 +32,7 @@ def get_token(client_id, client_secret):
 # Searches for a specified album
 def search_for_album(query, token):
     
-    url = "https://api.spotify.com/v1/search"
+    url = "https://api.spotify.com/v1/search/"
 
     headers = {"Authorization": f"Bearer {token}"}
 
