@@ -30,11 +30,17 @@ def get_token(client_id, client_secret):
         print("Error:", response.status_code, response.text)
 
 # Searches for a specified album
-def search_for_album(query, token):
+def search_for_album(album, token, artist_name=None):
     
     url = "https://api.spotify.com/v1/search/"
 
     headers = {"Authorization": f"Bearer {token}"}
+
+    # Build query dynamically
+    if artist_name:
+        query = f"album:{album} artist:{artist_name}"
+    else:
+        query = f"album:{album}"
 
     params = {
         "q": query,
@@ -45,4 +51,14 @@ def search_for_album(query, token):
     r = requests.get(url, headers=headers, params=params)
     r.raise_for_status()
 
+    return r.json()
+
+def get_album_details(album_id, token):
+
+    url = f"https://api.spotify.com/v1/albums/{album_id}"
+
+    headers = {"Authorization": f"Bearer {token}"}
+
+    r = requests.get(url, headers=headers)
+    r.raise_for_status()
     return r.json()
