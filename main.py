@@ -13,7 +13,7 @@ if __name__ == "__main__":
     client_secret = os.environ.get("CLIENTSECRET")
     token = get_token(client_id=client_id, client_secret=client_secret)
 
-    st.title("Spotify API Testing Playground 👋")
+    st.title("Spotify Deep Search")
 
     col1, col2 = st.columns(2)
     col3, col4 = st.columns(2)
